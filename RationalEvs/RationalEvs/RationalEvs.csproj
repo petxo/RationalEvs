@@ -1,0 +1,119 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{553A3AED-5DD9-4107-93F9-430B02854681}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>RationalEvs</RootNamespace>
+    <AssemblyName>RationalEvs</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="BteamMongoDB">
+      <HintPath>..\libs\BteamMongoDB.dll</HintPath>
+    </Reference>
+    <Reference Include="Jolt">
+      <HintPath>..\libs\Jolt.dll</HintPath>
+    </Reference>
+    <Reference Include="Jolt.Automata">
+      <HintPath>..\libs\Jolt.Automata.dll</HintPath>
+    </Reference>
+    <Reference Include="Jolt.Testing.GeneratedTypes">
+      <HintPath>..\libs\Jolt.Testing.GeneratedTypes.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net">
+      <HintPath>..\packages\log4net.2.0.0\lib\net40-full\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="MongoDB.Bson">
+      <HintPath>..\packages\mongocsharpdriver.1.8.1\lib\net35\MongoDB.Bson.dll</HintPath>
+    </Reference>
+    <Reference Include="MongoDB.Driver">
+      <HintPath>..\packages\mongocsharpdriver.1.8.1\lib\net35\MongoDB.Driver.dll</HintPath>
+    </Reference>
+    <Reference Include="QuickGraph">
+      <HintPath>..\libs\QuickGraph.dll</HintPath>
+    </Reference>
+    <Reference Include="QuickGraph.Data">
+      <HintPath>..\libs\QuickGraph.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="QuickGraph.Graphviz">
+      <HintPath>..\libs\QuickGraph.Graphviz.dll</HintPath>
+    </Reference>
+    <Reference Include="QuickGraph.Serialization">
+      <HintPath>..\libs\QuickGraph.Serialization.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AggregateRoot.cs" />
+    <Compile Include="Appliers\ApplierEventFactory.cs" />
+    <Compile Include="Appliers\ApplierEventsBase.cs" />
+    <Compile Include="Appliers\FirtComeApplierEvents.cs" />
+    <Compile Include="Appliers\IApplierEvents.cs" />
+    <Compile Include="Appliers\OrderedVersioningApplierEvents.cs" />
+    <Compile Include="DomainEventErroneoEventHandler.cs" />
+    <Compile Include="DomainEventErroneoEventHandlerArgs.cs" />
+    <Compile Include="Entities\EntityEventSource.cs" />
+    <Compile Include="Events\IDomainEvent.cs" />
+    <Compile Include="Events\IIdentificableDomainEvent.cs" />
+    <Compile Include="Events\InternalDomainEvent.cs" />
+    <Compile Include="Factories\AggregateRootFactory.cs" />
+    <Compile Include="Factories\IAggregateFactory.cs" />
+    <Compile Include="Fsm\Configuration\FsmConfigurator.cs" />
+    <Compile Include="Fsm\Configuration\FsmConfiguratorFactory.cs" />
+    <Compile Include="Fsm\Configuration\FsmTransition.cs" />
+    <Compile Include="Fsm\Configuration\Loaders\GraphFsm.cs" />
+    <Compile Include="Fsm\Configuration\Loaders\IFsmLoader.cs" />
+    <Compile Include="Fsm\Configuration\Loaders\State.cs" />
+    <Compile Include="Fsm\Configuration\Loaders\Transition.cs" />
+    <Compile Include="Fsm\Configuration\Loaders\Xgml\XgmlLoader.cs" />
+    <Compile Include="Fsm\FiniteStateMachineFactory.cs" />
+    <Compile Include="Fsm\FsmDecorator.cs" />
+    <Compile Include="Fsm\IFsmDecorator.cs" />
+    <Compile Include="IAggregateRoot.cs" />
+    <Compile Include="IRoot.cs" />
+    <Compile Include="IVersionableEntity.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\EventsRepository.cs" />
+    <Compile Include="Repositories\IEventsRepository.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
