@@ -1,18 +1,18 @@
 ﻿using System.IO;
 using System.Xml.XPath;
+using log4net;
 
 namespace RationalEvs.Fsm.Configuration.Loaders.Xgml
 {
     public class XgmlLoader : IFsmLoader
     {
-
         public GraphFsm LoadFrom(string filename)
         {
             var stream = new FileStream(filename, FileMode.Open);
             var document = new XPathDocument(stream);
             var navigator = document.CreateNavigator();
 
-            var xgmlFsm = new GraphFsm();
+            var xgmlFsm = new GraphFsm { Logger = LogManager.GetLogger(GetType())};
 
             ReadStates(xgmlFsm, navigator);
             ReadTransitions(xgmlFsm, navigator);

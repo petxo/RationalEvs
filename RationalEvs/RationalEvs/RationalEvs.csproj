@@ -104,6 +104,21 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\EventsRepository.cs" />
     <Compile Include="Repositories\IEventsRepository.cs" />
+    <Compile Include="Services\ActionStateNotificationArgs.cs" />
+    <Compile Include="Services\ActionStateNotificationHandler.cs" />
+    <Compile Include="Services\EnityNotExistNotificationHandler.cs" />
+    <Compile Include="Services\EnityNotExistNotificationHandlerArgs.cs" />
+    <Compile Include="Services\EventSourcingService.cs" />
+    <Compile Include="Services\IEventSourcingService.cs" />
+    <Compile Include="Services\IStateStrategy.cs" />
+    <Compile Include="Services\RefuseEngines\Factories\RefuseEngineFactory.cs" />
+    <Compile Include="Services\RefuseEngines\IRefuseEngine.cs" />
+    <Compile Include="Services\RefuseEngines\NoActionRefuseEngine.cs" />
+    <Compile Include="Services\RefuseEngines\NoApplyEventRefuseEngine.cs" />
+    <Compile Include="Services\RefuseEngines\RefusedSuccessEventHandler.cs" />
+    <Compile Include="Services\RefuseEngines\RefusedSuccessEventHandlerArgs.cs" />
+    <Compile Include="Services\RefuseEngines\RemoveEventRefuseEngine.cs" />
+    <Compile Include="Services\StateStrategy.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

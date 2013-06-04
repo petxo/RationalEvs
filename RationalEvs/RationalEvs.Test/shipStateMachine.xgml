@@ -1,0 +1,381 @@
+<?xml version="1.0" encoding="Windows-1252"?>
+<section name="xgml">
+	<attribute key="Creator" type="String">yFiles</attribute>
+	<attribute key="Version" type="String">2.10</attribute>
+	<section name="graph">
+		<attribute key="hierarchic" type="int">1</attribute>
+		<attribute key="label" type="String"></attribute>
+		<attribute key="directed" type="int">1</attribute>
+		<section name="node">
+			<attribute key="id" type="int">0</attribute>
+			<attribute key="label" type="String">Anchored</attribute>
+			<section name="graphics">
+				<attribute key="x" type="double">420.0</attribute>
+				<attribute key="y" type="double">210.0</attribute>
+				<attribute key="w" type="double">135.0</attribute>
+				<attribute key="h" type="double">135.0</attribute>
+				<attribute key="type" type="String">ellipse</attribute>
+				<attribute key="fill" type="String">#66DD55</attribute>
+				<attribute key="outline" type="String">#000000</attribute>
+			</section>
+			<section name="LabelGraphics">
+				<attribute key="text" type="String">Anchored</attribute>
+				<attribute key="fontSize" type="int">12</attribute>
+				<attribute key="fontName" type="String">Dialog</attribute>
+				<attribute key="anchor" type="String">c</attribute>
+			</section>
+		</section>
+		<section name="node">
+			<attribute key="id" type="int">1</attribute>
+			<attribute key="label" type="String">In Navigation</attribute>
+			<section name="graphics">
+				<attribute key="x" type="double">270.0</attribute>
+				<attribute key="y" type="double">480.0</attribute>
+				<attribute key="w" type="double">135.0</attribute>
+				<attribute key="h" type="double">135.0</attribute>
+				<attribute key="type" type="String">ellipse</attribute>
+				<attribute key="fill" type="String">#8EFF00</attribute>
+				<attribute key="outline" type="String">#000000</attribute>
+				<attribute key="outlineWidth" type="int">2</attribute>
+				<attribute key="outlineStyle" type="String">dashed</attribute>
+			</section>
+			<section name="LabelGraphics">
+				<attribute key="text" type="String">In Navigation</attribute>
+				<attribute key="fontSize" type="int">12</attribute>
+				<attribute key="fontName" type="String">Dialog</attribute>
+				<attribute key="anchor" type="String">c</attribute>
+			</section>
+		</section>
+		<section name="node">
+			<attribute key="id" type="int">2</attribute>
+			<attribute key="label" type="String">Sunken</attribute>
+			<section name="graphics">
+				<attribute key="x" type="double">615.0</attribute>
+				<attribute key="y" type="double">480.0</attribute>
+				<attribute key="w" type="double">135.0</attribute>
+				<attribute key="h" type="double">135.0</attribute>
+				<attribute key="type" type="String">ellipse</attribute>
+				<attribute key="fill" type="String">#2F8AFE</attribute>
+				<attribute key="outline" type="String">#000000</attribute>
+				<attribute key="outlineWidth" type="int">2</attribute>
+				<attribute key="outlineStyle" type="String">dashed_dotted</attribute>
+			</section>
+			<section name="LabelGraphics">
+				<attribute key="text" type="String">Sunken</attribute>
+				<attribute key="fontSize" type="int">12</attribute>
+				<attribute key="fontName" type="String">Dialog</attribute>
+				<attribute key="anchor" type="String">c</attribute>
+			</section>
+		</section>
+		<section name="node">
+			<attribute key="id" type="int">3</attribute>
+			<attribute key="label" type="String">Damaged</attribute>
+			<section name="graphics">
+				<attribute key="x" type="double">-90.0</attribute>
+				<attribute key="y" type="double">330.0</attribute>
+				<attribute key="w" type="double">135.0</attribute>
+				<attribute key="h" type="double">135.0</attribute>
+				<attribute key="type" type="String">ellipse</attribute>
+				<attribute key="fill" type="String">#8EFF00</attribute>
+				<attribute key="outline" type="String">#000000</attribute>
+			</section>
+			<section name="LabelGraphics">
+				<attribute key="text" type="String">Damaged</attribute>
+				<attribute key="fontSize" type="int">12</attribute>
+				<attribute key="fontName" type="String">Dialog</attribute>
+				<attribute key="anchor" type="String">c</attribute>
+			</section>
+		</section>
+		<section name="node">
+			<attribute key="id" type="int">4</attribute>
+			<attribute key="label" type="String">Repairing</attribute>
+			<section name="graphics">
+				<attribute key="x" type="double">-17.0</attribute>
+				<attribute key="y" type="double">0.0</attribute>
+				<attribute key="w" type="double">135.0</attribute>
+				<attribute key="h" type="double">135.0</attribute>
+				<attribute key="type" type="String">ellipse</attribute>
+				<attribute key="fill" type="String">#8EFF00</attribute>
+				<attribute key="outline" type="String">#000000</attribute>
+			</section>
+			<section name="LabelGraphics">
+				<attribute key="text" type="String">Repairing</attribute>
+				<attribute key="fontSize" type="int">12</attribute>
+				<attribute key="fontName" type="String">Dialog</attribute>
+				<attribute key="anchor" type="String">c</attribute>
+			</section>
+		</section>
+		<section name="edge">
+			<attribute key="source" type="int">1</attribute>
+			<attribute key="target" type="int">0</attribute>
+			<attribute key="label" type="String">ArrivalEvent;1</attribute>
+			<section name="graphics">
+				<attribute key="type" type="String">arc</attribute>
+				<attribute key="fill" type="String">#000000</attribute>
+				<attribute key="targetArrow" type="String">standard</attribute>
+				<attribute key="arcType" type="String">fixedRatio</attribute>
+				<attribute key="arcHeight" type="double">77.21722412109375</attribute>
+				<attribute key="arcRatio" type="double">1.0</attribute>
+				<section name="Line">
+					<section name="point">
+						<attribute key="x" type="double">270.0</attribute>
+						<attribute key="y" type="double">480.0</attribute>
+					</section>
+					<section name="point">
+						<attribute key="x" type="double">277.5</attribute>
+						<attribute key="y" type="double">307.5</attribute>
+					</section>
+					<section name="point">
+						<attribute key="x" type="double">420.0</attribute>
+						<attribute key="y" type="double">210.0</attribute>
+					</section>
+				</section>
+			</section>
+			<section name="LabelGraphics">
+				<attribute key="text" type="String">ArrivalEvent;1</attribute>
+				<attribute key="fontSize" type="int">12</attribute>
+				<attribute key="fontName" type="String">Dialog</attribute>
+				<attribute key="model" type="String">six_pos</attribute>
+				<attribute key="position" type="String">tail</attribute>
+			</section>
+		</section>
+		<section name="edge">
+			<attribute key="source" type="int">0</attribute>
+			<attribute key="target" type="int">1</attribute>
+			<attribute key="label" type="String">DepartureEvent;0</attribute>
+			<section name="graphics">
+				<attribute key="type" type="String">arc</attribute>
+				<attribute key="fill" type="String">#000000</attribute>
+				<attribute key="targetArrow" type="String">standard</attribute>
+				<attribute key="arcType" type="String">fixedRatio</attribute>
+				<attribute key="arcHeight" type="double">77.21722412109375</attribute>
+				<attribute key="arcRatio" type="double">1.0</attribute>
+				<section name="Line">
+					<section name="point">
+						<attribute key="x" type="double">420.0</attribute>
+						<attribute key="y" type="double">210.0</attribute>
+					</section>
+					<section name="point">
+						<attribute key="x" type="double">412.5</attribute>
+						<attribute key="y" type="double">382.5</attribute>
+					</section>
+					<section name="point">
+						<attribute key="x" type="double">270.0</attribute>
+						<attribute key="y" type="double">480.0</attribute>
+					</section>
+				</section>
+			</section>
+			<section name="LabelGraphics">
+				<attribute key="text" type="String">DepartureEvent;0</attribute>
+				<attribute key="fontSize" type="int">12</attribute>
+				<attribute key="fontName" type="String">Dialog</attribute>
+				<attribute key="model" type="String">six_pos</attribute>
+				<attribute key="position" type="String">tail</attribute>
+			</section>
+		</section>
+		<section name="edge">
+			<attribute key="source" type="int">1</attribute>
+			<attribute key="target" type="int">2</attribute>
+			<attribute key="label" type="String">IcebergEvent;0</attribute>
+			<section name="graphics">
+				<attribute key="type" type="String">arc</attribute>
+				<attribute key="fill" type="String">#000000</attribute>
+				<attribute key="targetArrow" type="String">standard</attribute>
+				<attribute key="arcType" type="String">fixedRatio</attribute>
+				<attribute key="arcHeight" type="double">-78.75</attribute>
+				<attribute key="arcRatio" type="double">-0.9130434989929199</attribute>
+				<section name="Line">
+					<section name="point">
+						<attribute key="x" type="double">270.0</attribute>
+						<attribute key="y" type="double">480.0</attribute>
+					</section>
+					<section name="point">
+						<attribute key="x" type="double">442.5</attribute>
+						<attribute key="y" type="double">558.75</attribute>
+					</section>
+					<section name="point">
+						<attribute key="x" type="double">615.0</attribute>
+						<attribute key="y" type="double">480.0</attribute>
+					</section>
+				</section>
+			</section>
+			<section name="LabelGraphics">
+				<attribute key="text" type="String">IcebergEvent;0</attribute>
+				<attribute key="fontSize" type="int">12</attribute>
+				<attribute key="fontName" type="String">Dialog</attribute>
+				<attribute key="model" type="String">six_pos</attribute>
+				<attribute key="position" type="String">tail</attribute>
+			</section>
+		</section>
+		<section name="edge">
+			<attribute key="source" type="int">1</attribute>
+			<attribute key="target" type="int">3</attribute>
+			<attribute key="label" type="String">BrokenEngineEvent</attribute>
+			<section name="graphics">
+				<attribute key="type" type="String">arc</attribute>
+				<attribute key="fill" type="String">#000000</attribute>
+				<attribute key="targetArrow" type="String">standard</attribute>
+				<attribute key="arcType" type="String">fixedRatio</attribute>
+				<attribute key="arcHeight" type="double">97.5</attribute>
+				<attribute key="arcRatio" type="double">1.0</attribute>
+				<section name="Line">
+					<section name="point">
+						<attribute key="x" type="double">270.0</attribute>
+						<attribute key="y" type="double">480.0</attribute>
+					</section>
+					<section name="point">
+						<attribute key="x" type="double">52.5</attribute>
+						<attribute key="y" type="double">495.0</attribute>
+					</section>
+					<section name="point">
+						<attribute key="x" type="double">-90.0</attribute>
+						<attribute key="y" type="double">330.0</attribute>
+					</section>
+				</section>
+			</section>
+			<section name="LabelGraphics">
+				<attribute key="text" type="String">BrokenEngineEvent</attribute>
+				<attribute key="fontSize" type="int">12</attribute>
+				<attribute key="fontName" type="String">Dialog</attribute>
+				<attribute key="model" type="String">six_pos</attribute>
+				<attribute key="position" type="String">head</attribute>
+			</section>
+		</section>
+		<section name="edge">
+			<attribute key="source" type="int">3</attribute>
+			<attribute key="target" type="int">4</attribute>
+			<attribute key="label" type="String">RepairInProgressEvent</attribute>
+			<section name="graphics">
+				<attribute key="type" type="String">arc</attribute>
+				<attribute key="fill" type="String">#000000</attribute>
+				<attribute key="targetArrow" type="String">standard</attribute>
+				<attribute key="arcType" type="String">fixedRatio</attribute>
+				<attribute key="arcHeight" type="double">84.49445343017578</attribute>
+				<attribute key="arcRatio" type="double">1.0</attribute>
+				<section name="Line">
+					<section name="point">
+						<attribute key="x" type="double">-90.0</attribute>
+						<attribute key="y" type="double">330.0</attribute>
+					</section>
+					<section name="point">
+						<attribute key="x" type="double">-136.0</attribute>
+						<attribute key="y" type="double">146.75</attribute>
+					</section>
+					<section name="point">
+						<attribute key="x" type="double">-17.0</attribute>
+						<attribute key="y" type="double">0.0</attribute>
+					</section>
+				</section>
+			</section>
+			<section name="LabelGraphics">
+				<attribute key="text" type="String">RepairInProgressEvent</attribute>
+				<attribute key="fontSize" type="int">12</attribute>
+				<attribute key="fontName" type="String">Dialog</attribute>
+				<attribute key="model" type="String">six_pos</attribute>
+				<attribute key="position" type="String">tail</attribute>
+			</section>
+		</section>
+		<section name="edge">
+			<attribute key="source" type="int">4</attribute>
+			<attribute key="target" type="int">0</attribute>
+			<attribute key="label" type="String">RepairedEngineEvent</attribute>
+			<section name="graphics">
+				<attribute key="type" type="String">arc</attribute>
+				<attribute key="fill" type="String">#000000</attribute>
+				<attribute key="targetArrow" type="String">standard</attribute>
+				<attribute key="arcType" type="String">fixedRatio</attribute>
+				<attribute key="arcHeight" type="double">121.20978546142578</attribute>
+				<attribute key="arcRatio" type="double">1.0</attribute>
+				<section name="Line">
+					<section name="point">
+						<attribute key="x" type="double">-17.0</attribute>
+						<attribute key="y" type="double">0.0</attribute>
+					</section>
+					<section name="point">
+						<attribute key="x" type="double">254.0</attribute>
+						<attribute key="y" type="double">-4.25</attribute>
+					</section>
+					<section name="point">
+						<attribute key="x" type="double">420.0</attribute>
+						<attribute key="y" type="double">210.0</attribute>
+					</section>
+				</section>
+			</section>
+			<section name="LabelGraphics">
+				<attribute key="text" type="String">RepairedEngineEvent</attribute>
+				<attribute key="fontSize" type="int">12</attribute>
+				<attribute key="fontName" type="String">Dialog</attribute>
+				<attribute key="model" type="String">six_pos</attribute>
+				<attribute key="position" type="String">head</attribute>
+			</section>
+		</section>
+		<section name="edge">
+			<attribute key="source" type="int">0</attribute>
+			<attribute key="target" type="int">3</attribute>
+			<attribute key="label" type="String">BrokenEngineEvent;1</attribute>
+			<section name="graphics">
+				<attribute key="type" type="String">arc</attribute>
+				<attribute key="fill" type="String">#000000</attribute>
+				<attribute key="targetArrow" type="String">standard</attribute>
+				<attribute key="arcType" type="String">fixedRatio</attribute>
+				<attribute key="arcHeight" type="double">-54.53998947143555</attribute>
+				<attribute key="arcRatio" type="double">-0.4163934290409088</attribute>
+				<section name="Line">
+					<section name="point">
+						<attribute key="x" type="double">420.0</attribute>
+						<attribute key="y" type="double">210.0</attribute>
+					</section>
+					<section name="point">
+						<attribute key="x" type="double">152.50819396972656</attribute>
+						<attribute key="y" type="double">216.9098358154297</attribute>
+					</section>
+					<section name="point">
+						<attribute key="x" type="double">-90.0</attribute>
+						<attribute key="y" type="double">330.0</attribute>
+					</section>
+				</section>
+			</section>
+			<section name="LabelGraphics">
+				<attribute key="text" type="String">BrokenEngineEvent;1</attribute>
+				<attribute key="fontSize" type="int">12</attribute>
+				<attribute key="fontName" type="String">Dialog</attribute>
+				<attribute key="model" type="String">six_pos</attribute>
+				<attribute key="position" type="String">ttail</attribute>
+			</section>
+		</section>
+		<section name="edge">
+			<attribute key="source" type="int">4</attribute>
+			<attribute key="target" type="int">1</attribute>
+			<attribute key="label" type="String">RepairedEngineEvent</attribute>
+			<section name="graphics">
+				<attribute key="type" type="String">arc</attribute>
+				<attribute key="fill" type="String">#000000</attribute>
+				<attribute key="targetArrow" type="String">standard</attribute>
+				<attribute key="arcType" type="String">fixedRatio</attribute>
+				<attribute key="arcHeight" type="double">24.83650016784668</attribute>
+				<attribute key="arcRatio" type="double">0.17763908207416534</attribute>
+				<section name="Line">
+					<section name="point">
+						<attribute key="x" type="double">-17.0</attribute>
+						<attribute key="y" type="double">0.0</attribute>
+					</section>
+					<section name="point">
+						<attribute key="x" type="double">147.8166961669922</attribute>
+						<attribute key="y" type="double">227.25439453125</attribute>
+					</section>
+					<section name="point">
+						<attribute key="x" type="double">270.0</attribute>
+						<attribute key="y" type="double">480.0</attribute>
+					</section>
+				</section>
+			</section>
+			<section name="LabelGraphics">
+				<attribute key="text" type="String">RepairedEngineEvent</attribute>
+				<attribute key="fontSize" type="int">12</attribute>
+				<attribute key="fontName" type="String">Dialog</attribute>
+				<attribute key="model" type="String">six_pos</attribute>
+				<attribute key="position" type="String">stail</attribute>
+			</section>
+		</section>
+	</section>
+</section>
