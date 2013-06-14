@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+                           assembly="RationalEvs.Sql"
+                           namespace="RationalEvs.Sql">
+  
+  <class name="EntityEventSourceWrapper"
+        table="EntityEventSource">
+    <id name="Id">
+      <generator class="assigned" />
+    </id>
+    <property name="SnapShot" />
+    <property name="Version" />
+    <property name="State" />
+    <property name="Status" />
+    <property name="ProcessingAt" />
+    <property name="ProcessingBy" />
+    <bag name="Events" inverse="true" cascade="all">
+      <key column="EntityId"  not-null="true"/>
+      <one-to-many class="EventWrapper" />
+    </bag>
+  </class>
+  
+</hibernate-mapping>

@@ -6,7 +6,7 @@ using RationalEvs.Events;
 
 namespace RationalEvs.Entities
 {
-    public class EntityEventSource<TEntity, TId> : IMongoEntity<TId>  where TEntity : IVersionableEntity<TId>, new()
+    public class EntityEventSource<TEntity, TId> : IMongoEntity<TId> where TEntity : IVersionableEntity<TId>, new()
     {
 
         /// <summary>

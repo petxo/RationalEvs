@@ -5,6 +5,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RationalEvs", "RationalEvs\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RationalEvs.Test", "RationalEvs.Test\RationalEvs.Test.csproj", "{664956D3-5EE6-45D3-BD00-0CD31015DBBC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RationalEvs.Sql", "RationalEvs.Sql\RationalEvs.Sql.csproj", "{C26761BF-FCE9-4AB7-AF07-078D5B757B1C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RationalEvs.Sql.Test", "RationalEvs.Sql.Test\RationalEvs.Sql.Test.csproj", "{50B97942-1FA0-49B5-8DCD-ADF9510A327C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -19,6 +23,14 @@ Global
 		{664956D3-5EE6-45D3-BD00-0CD31015DBBC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{664956D3-5EE6-45D3-BD00-0CD31015DBBC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{664956D3-5EE6-45D3-BD00-0CD31015DBBC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C26761BF-FCE9-4AB7-AF07-078D5B757B1C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C26761BF-FCE9-4AB7-AF07-078D5B757B1C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C26761BF-FCE9-4AB7-AF07-078D5B757B1C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C26761BF-FCE9-4AB7-AF07-078D5B757B1C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{50B97942-1FA0-49B5-8DCD-ADF9510A327C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{50B97942-1FA0-49B5-8DCD-ADF9510A327C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{50B97942-1FA0-49B5-8DCD-ADF9510A327C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{50B97942-1FA0-49B5-8DCD-ADF9510A327C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
