@@ -1,5 +1,6 @@
 ﻿using BteamMongoDB.Repository;
 using MongoDB.Bson;
+using MongoDB.Driver;
 using RationalEvs.Entities;
 using RationalEvs.Factories;
 using RationalEvs.Fsm.Configuration;
@@ -19,13 +20,15 @@ namespace RationalEvs.Test
         private IAggregateFactory<Ship, ObjectId> _aggregateFactory;
         private Ship _ship;
         private FsmConfigurator _fsmConfigurator;
+        private IQuerySnapshotBuilder<IMongoQuery, Ship> _queryBuilder;
 
 
         [SetUp]
         public void Setup()
         {
             _repository = new Repository<EntityEventSource<Ship, ObjectId>, ObjectId>("RationalEvs", "EventSourcing");
-            _eventsRepository = new EventsRepository<Ship, ObjectId>(_repository, 0);
+            _queryBuilder = new MongoQuerySnapshotBuilder<Ship, ObjectId>();
+            _eventsRepository = new EventsRepository<Ship, ObjectId>(_repository, _queryBuilder, 0);
 
             _fsmConfigurator = FsmConfiguratorFactory.WithXgml("shipStateMachine.xgml").SetInitialState("In Navigation").WithDomainAssembly
     <DepartureEvent>("RationalEvs.Test.DomainFake.Events").

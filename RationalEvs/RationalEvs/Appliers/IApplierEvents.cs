@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using MongoDB.Driver;
 using RationalEvs.Events;
+using RationalEvs.Repositories;
 
 namespace RationalEvs.Appliers
 {
@@ -15,9 +16,13 @@ namespace RationalEvs.Appliers
         /// <returns></returns>
         IEnumerable<IDomainEvent<TEntity>> GetOrderedEvents<TEntity>(IEnumerable<IDomainEvent<TEntity>> events, long version);
 
+
         /// <summary>
-        /// Gets the query snap shot.
+        /// Gets the type snap shot.
         /// </summary>
-        IMongoQuery GetQuerySnapShot<TEntity, TId>(TEntity entity) where TEntity : IVersionableEntity<TId>;
+        /// <value>
+        /// The type snap shot.
+        /// </value>
+        SnapShotType TypeSnapShot { get; }
     }
 }

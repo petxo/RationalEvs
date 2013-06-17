@@ -1,7 +1,7 @@
-﻿using System.Reflection;
+﻿using System.Linq;
 using MongoDB.Bson.Serialization;
 using RationalEvs.Entities;
-using MongoDB.Bson;
+using RationalEvs.Events;
 
 namespace RationalEvs.Sql
 {
@@ -30,7 +30,10 @@ namespace RationalEvs.Sql
 
             foreach (var eventWrapper in entity.Events)
             {
-                //MongoDB.Bson.Serialization.BsonSerializer.
+                var registeredClassMaps = BsonClassMap.GetRegisteredClassMaps();
+                var bsonClassMap = registeredClassMaps.First(map => map.Discriminator == eventWrapper.Type);
+                var @event = BsonSerializer.Deserialize(eventWrapper.Data, bsonClassMap.ClassType);
+                domain.Events.Add((IDomainEvent<TEntity>) @event);
             }
         }
 

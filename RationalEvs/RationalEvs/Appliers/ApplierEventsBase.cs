@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using MongoDB.Driver;
 using RationalEvs.Events;
+using RationalEvs.Repositories;
 
 namespace RationalEvs.Appliers
 {
@@ -17,6 +18,8 @@ namespace RationalEvs.Appliers
         {
             _notApplyEventPreviousRootVersion = notApplyEventPreviousRootVersion;
         }
+
+        public abstract SnapShotType TypeSnapShot { get; }
 
         /// <summary>
         /// Gets a value indicating whether [not apply event previous root version].
@@ -38,9 +41,5 @@ namespace RationalEvs.Appliers
         /// <returns></returns>
         public abstract IEnumerable<IDomainEvent<TEntity>> GetOrderedEvents<TEntity>(IEnumerable<IDomainEvent<TEntity>> events, long version);
 
-        /// <summary>
-        /// Gets the query snap shot.
-        /// </summary>
-        public abstract IMongoQuery GetQuerySnapShot<TEntity, TId>(TEntity entity) where TEntity : IVersionableEntity<TId>;
     }
 }

@@ -18,6 +18,15 @@
         /// </value>
         public virtual string Type { get; set; }
 
+
+        /// <summary>
+        /// Gets or sets the version.
+        /// </summary>
+        /// <value>
+        /// The version.
+        /// </value>
+        public virtual long Version { get; set; }
+
         /// <summary>
         /// Gets or sets the data.
         /// </summary>

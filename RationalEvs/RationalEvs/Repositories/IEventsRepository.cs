@@ -53,7 +53,7 @@ namespace RationalEvs.Repositories
         /// <param name="query">The query.</param>
         /// <param name="events">The events.</param>
         /// <param name="state">The state.</param>
-        void SaveSnapShot(TEntity entity, IMongoQuery query, IEnumerable<IDomainEvent<TEntity>> events, string state);
+        void SaveSnapShot(TEntity entity, SnapShotType snapShotType, IEnumerable<IDomainEvent<TEntity>> events, string state);
 
 
         /// <summary>

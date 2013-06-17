@@ -9,6 +9,7 @@
       <generator class="identity" />
     </id>
     <property name="Type" />
+    <property name="Version" />
     <property name="Data" />
     <many-to-one class ="EntityEventSourceWrapper" name ="Entity"
        column ="EntityId"/>

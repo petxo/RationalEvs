@@ -3,6 +3,7 @@ using MongoDB.Bson;
 using MongoDB.Driver;
 using MongoDB.Driver.Builders;
 using RationalEvs.Events;
+using RationalEvs.Repositories;
 
 namespace RationalEvs.Appliers
 {
@@ -40,15 +41,14 @@ namespace RationalEvs.Appliers
         }
 
         /// <summary>
-        /// Gets the query snap shot.
+        /// Gets the type snap shot.
         /// </summary>
-        /// <typeparam name="TEntity"></typeparam>
-        /// <typeparam name="TId"></typeparam>
-        /// <param name="entity"></param>
-        /// <returns></returns>
-        public override IMongoQuery GetQuerySnapShot<TEntity, TId>(TEntity entity)
+        /// <value>
+        /// The type snap shot.
+        /// </value>
+        public override SnapShotType TypeSnapShot
         {
-            return Query.EQ("_id", BsonDocumentWrapper.Create(entity.Id));
+            get { return SnapShotType.ById; }
         }
     }
 }

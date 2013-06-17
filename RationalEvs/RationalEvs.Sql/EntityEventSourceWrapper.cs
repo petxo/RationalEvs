@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using Bteam.NHibernate;
 
 namespace RationalEvs.Sql
@@ -76,6 +77,33 @@ namespace RationalEvs.Sql
         {
             Events.Add(eventWrapper);
             eventWrapper.Entity = this;
+        }
+
+        /// <summary>
+        /// Clears the events.
+        /// </summary>
+        public virtual void ClearEvents()
+        {
+            foreach (var @event in Events)
+            {
+                @event.Entity = null;
+            }
+            Events.Clear();
+        }
+
+        /// <summary>
+        /// Removes the event.
+        /// </summary>
+        /// <param name="type">The type.</param>
+        /// <param name="version">The version.</param>
+        public virtual void RemoveEvent(string type, long version)
+        {
+            var firstOrDefault = Events.FirstOrDefault(wrapper => wrapper.Type == type && wrapper.Version == version);
+            if (firstOrDefault != null)
+            {
+                Events.Remove(firstOrDefault);
+                firstOrDefault.Entity = null;
+            }
         }
     }
 }

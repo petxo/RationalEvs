@@ -4,6 +4,7 @@ using MongoDB.Bson;
 using MongoDB.Driver;
 using MongoDB.Driver.Builders;
 using RationalEvs.Events;
+using RationalEvs.Repositories;
 
 namespace RationalEvs.Appliers
 {
@@ -39,18 +40,16 @@ namespace RationalEvs.Appliers
             return events.Where(ev => !NotApplyEventPreviousRootVersion || ev.Version >= version).OrderBy(ev => ev.Version).ToList();
         }
 
+
         /// <summary>
-        /// Gets the query snap shot.
+        /// Gets the type snap shot.
         /// </summary>
-        /// <typeparam name="TEntity"></typeparam>
-        /// <param name="entity"></param>
-        /// <returns></returns>
-        public override IMongoQuery GetQuerySnapShot<TEntity, TId>(TEntity entity)
+        /// <value>
+        /// The type snap shot.
+        /// </value>
+        public override SnapShotType TypeSnapShot
         {
-            //Se hace solo el SnapShot si la version que hay guardada es anterior a TEntity
-            return Query.And(Query.EQ("_id", BsonDocumentWrapper.Create(entity.Id)),
-                  Query.Or(Query.NotExists("Version"), Query.LTE("Version", BsonDocumentWrapper.Create(entity.Version)))
-                    );
+            get { return SnapShotType.ByVersion; }
         }
     }
 }

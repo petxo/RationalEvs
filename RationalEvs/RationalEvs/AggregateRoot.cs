@@ -132,7 +132,7 @@ namespace RationalEvs
         /// </summary>
         public void CreateSnapShot()
         {
-            _repository.SaveSnapShot(Root, _applierEvents.GetQuerySnapShot<TEntity, TId>(Root), _appliedEvents, State);
+            _repository.SaveSnapShot(Root, _applierEvents.TypeSnapShot, _appliedEvents, State);
         }
 
         /// <summary>

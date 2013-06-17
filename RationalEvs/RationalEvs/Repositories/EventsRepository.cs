@@ -16,44 +16,50 @@ namespace RationalEvs.Repositories
     public class EventsRepository<TEntity, TId> : IEventsRepository<TEntity, TId> where TEntity : IVersionableEntity<TId>, new() where TId : new()
     {
         private readonly IRepository<EntityEventSource<TEntity, TId>, TId> _repository;
+        private readonly IQuerySnapshotBuilder<IMongoQuery, TEntity> _mongoBuilder;
         private readonly int _timeOut;
         private readonly bool _storeHistory;
         private readonly int _maxHistory;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="EventsRepository&lt;TEntity&gt;"/> class.
+        /// Initializes a new instance of the <see cref="EventsRepository&lt;TEntity&gt;" /> class.
         /// </summary>
         /// <param name="repository">The repository.</param>
+        /// <param name="mongoBuilder">The mongo builder.</param>
         /// <param name="storeHistory">if set to <c>true</c> [store history].</param>
-        public EventsRepository(IRepository<EntityEventSource<TEntity, TId>, TId> repository, bool storeHistory)
-            : this(repository, storeHistory, 10)
+        public EventsRepository(IRepository<EntityEventSource<TEntity, TId>, TId> repository, IQuerySnapshotBuilder<IMongoQuery, TEntity> mongoBuilder, bool storeHistory)
+            : this(repository, mongoBuilder, storeHistory, 10)
         {
         }
 
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="EventsRepository&lt;TEntity&gt;"/> class.
+        /// Initializes a new instance of the <see cref="EventsRepository&lt;TEntity&gt;" /> class.
         /// </summary>
         /// <param name="repository">The repository.</param>
+        /// <param name="mongoBuilder">The mongo builder.</param>
         /// <param name="storeHistory">if set to <c>true</c> [store history].</param>
         /// <param name="maxHistory">The max history.</param>
-        public EventsRepository(IRepository<EntityEventSource<TEntity, TId>, TId> repository, bool storeHistory, int maxHistory)
+        public EventsRepository(IRepository<EntityEventSource<TEntity, TId>, TId> repository, IQuerySnapshotBuilder<IMongoQuery, TEntity> mongoBuilder, bool storeHistory, int maxHistory)
         {
             _repository = repository;
+            _mongoBuilder = mongoBuilder;
             _storeHistory = storeHistory;
             _maxHistory = maxHistory;
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="EventsRepository&lt;TEntity&gt;"/> class.
+        /// Initializes a new instance of the <see cref="EventsRepository&lt;TEntity&gt;" /> class.
         /// </summary>
         /// <param name="repository">The repository.</param>
+        /// <param name="mongoBuilder">The mongo builder.</param>
         /// <param name="timeOut">The time out.</param>
         /// <param name="storeHistory">if set to <c>true</c> [store history].</param>
         /// <param name="maxHistory">The max history.</param>
-        public EventsRepository(IRepository<EntityEventSource<TEntity, TId>, TId> repository, int timeOut = 30, bool storeHistory = false, int maxHistory = 10)
+        public EventsRepository(IRepository<EntityEventSource<TEntity, TId>, TId> repository, IQuerySnapshotBuilder<IMongoQuery, TEntity> mongoBuilder, int timeOut = 30, bool storeHistory = false, int maxHistory = 10)
         {
             _repository = repository;
+            _mongoBuilder = mongoBuilder;
             _timeOut = timeOut;
             _storeHistory = storeHistory;
             _maxHistory = maxHistory;
@@ -61,13 +67,15 @@ namespace RationalEvs.Repositories
 
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="EventsRepository&lt;TEntity&gt;"/> class.
+        /// Initializes a new instance of the <see cref="EventsRepository&lt;TEntity&gt;" /> class.
         /// </summary>
         /// <param name="repository">The repository.</param>
+        /// <param name="mongoBuilder">The mongo builder.</param>
         /// <param name="timeOut">The time out.</param>
-        public EventsRepository(IRepository<EntityEventSource<TEntity, TId>, TId> repository, int timeOut)
+        public EventsRepository(IRepository<EntityEventSource<TEntity, TId>, TId> repository, IQuerySnapshotBuilder<IMongoQuery, TEntity> mongoBuilder, int timeOut)
         {
             _repository = repository;
+            _mongoBuilder = mongoBuilder;
             _timeOut = timeOut;
         }
 
@@ -248,14 +256,14 @@ namespace RationalEvs.Repositories
         /// Saves the snap shot.
         /// </summary>
         /// <param name="entity">The entity.</param>
+        /// <param name="snapShotType">Type of the snap shot.</param>
         /// <param name="events">The events.</param>
         /// <param name="state">The state.</param>
-        /// <param name="query">The query.</param>
-        public void SaveSnapShot(TEntity entity, IMongoQuery query, IEnumerable<IDomainEvent<TEntity>> events, string state)
+        public void SaveSnapShot(TEntity entity, SnapShotType snapShotType, IEnumerable<IDomainEvent<TEntity>> events, string state)
         {
             _repository.Update
                 (
-                    query,
+                    _mongoBuilder.GetQuery(snapShotType, entity),
                     x => ((UpdateBuilder)x.GetUpdateBuilder())
                              .Set("SnapShot", BsonDocumentWrapper.Create(entity))
                              .Set("Version", BsonDocumentWrapper.Create(entity.Version))
