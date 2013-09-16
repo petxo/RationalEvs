@@ -40,7 +40,6 @@ namespace RationalEvs.Appliers
             return events.Where(ev => !NotApplyEventPreviousRootVersion || ev.Version >= version).OrderBy(ev => ev.Version).ToList();
         }
 
-
         /// <summary>
         /// Gets the type snap shot.
         /// </summary>

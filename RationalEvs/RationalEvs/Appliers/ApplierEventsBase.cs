@@ -1,5 +1,5 @@
 using System.Collections.Generic;
-using MongoDB.Driver;
+using System.Linq;
 using RationalEvs.Events;
 using RationalEvs.Repositories;
 
@@ -41,5 +41,17 @@ namespace RationalEvs.Appliers
         /// <returns></returns>
         public abstract IEnumerable<IDomainEvent<TEntity>> GetOrderedEvents<TEntity>(IEnumerable<IDomainEvent<TEntity>> events, long version);
 
+        /// <summary>
+        /// Gets the invalid events.
+        /// </summary>
+        /// <typeparam name="TEntity">The type of the entity.</typeparam>
+        /// <param name="events">The events.</param>
+        /// <param name="version">The version.</param>
+        /// <returns></returns>
+        public IEnumerable<IDomainEvent<TEntity>> GetInvalidEvents<TEntity>(IEnumerable<IDomainEvent<TEntity>> events, long version)
+        {
+            return NotApplyEventPreviousRootVersion ? events.Where(ev => ev.Version < version).OrderBy(ev => ev.Version).ToList() 
+                : new List<IDomainEvent<TEntity>>();
+        }
     }
 }

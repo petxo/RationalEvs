@@ -24,5 +24,14 @@ namespace RationalEvs.Appliers
         /// The type snap shot.
         /// </value>
         SnapShotType TypeSnapShot { get; }
+
+        /// <summary>
+        /// Gets the invalid events.
+        /// </summary>
+        /// <typeparam name="TEntity">The type of the entity.</typeparam>
+        /// <param name="events">The events.</param>
+        /// <param name="version">The version.</param>
+        /// <returns></returns>
+        IEnumerable<IDomainEvent<TEntity>> GetInvalidEvents<TEntity>(IEnumerable<IDomainEvent<TEntity>> events, long version);
     }
 }

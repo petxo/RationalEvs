@@ -64,12 +64,19 @@ namespace RationalEvs
         /// <param name="events">The events.</param>
         public void ApplyEvents(IEnumerable<IDomainEvent<TEntity>> events)
         {
+            var version = Root.Version;
             _applierEvents.GetOrderedEvents(events, Root.Version).ToList()
                 .ForEach(x => Logger.Debug(string.Format("APLICANDO EVENTO: {0}-{1}", x.GetType().Name, x.Version)));
 
             _appliedEvents.AddRange(_applierEvents.GetOrderedEvents(events, Root.Version));
 
             Regenerate();
+
+            //Eliminamos los eventos que no se han aplicado por version
+            foreach (var invalidEvent in _applierEvents.GetInvalidEvents(events, version))
+            {
+                RemoveEvent(invalidEvent);
+            }
         }
 
         /// <summary>
