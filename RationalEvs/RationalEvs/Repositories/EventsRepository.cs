@@ -125,7 +125,7 @@ namespace RationalEvs.Repositories
             {
                 var query = Query.And(Query.EQ("_id", BsonDocumentWrapper.Create(id)),
                     Query.Or(Query.EQ("Status", "Ready"),
-                             Query.LTE("ProcessingAt", BsonDateTime.Create(DateTime.UtcNow.Subtract(TimeSpan.FromSeconds(_timeOut)))),
+                             Query.LTE("ProcessingAt", new BsonDateTime(DateTime.UtcNow.Subtract(TimeSpan.FromSeconds(_timeOut)))),
                              Query.EQ("ProcessingBy", Thread.CurrentThread.ManagedThreadId.ToString(CultureInfo.InvariantCulture)))
                 );
 
@@ -134,9 +134,9 @@ namespace RationalEvs.Repositories
                     query,
                     x => ((UpdateBuilder)x.GetUpdateBuilder())
                     .PushAll("Events", events.Select(BsonDocumentWrapper.Create))
-                    .Set("Status", BsonString.Create("Processing"))
-                    .Set("ProcessingAt", BsonDateTime.Create(DateTime.UtcNow))
-                    .Set("ProcessingBy", BsonString.Create(Thread.CurrentThread.ManagedThreadId.ToString(CultureInfo.InvariantCulture))),
+                    .Set("Status", new BsonString("Processing"))
+                    .Set("ProcessingAt", new BsonDateTime(DateTime.UtcNow))
+                    .Set("ProcessingBy", new BsonString(Thread.CurrentThread.ManagedThreadId.ToString(CultureInfo.InvariantCulture))),
                     false,
                     true
                     );
@@ -162,7 +162,7 @@ namespace RationalEvs.Repositories
                     var query = Query.And(Query.EQ("_id", BsonDocumentWrapper.Create(id)),
                                           Query.Or(Query.EQ("Status", "Ready"),
                                                    Query.LTE("ProcessingAt",
-                                                             BsonDateTime.Create(
+                                                             new BsonDateTime(
                                                                  DateTime.UtcNow.Subtract(TimeSpan.FromSeconds(_timeOut)))),
                                                    Query.EQ("ProcessingBy",
                                                             Thread.CurrentThread.ManagedThreadId.ToString(
@@ -173,9 +173,9 @@ namespace RationalEvs.Repositories
                         query,
                         x => ((UpdateBuilder)x.GetUpdateBuilder())
                         .Push("Events", BsonDocumentWrapper.Create(@event))
-                        .Set("Status", BsonString.Create("Processing"))
-                        .Set("ProcessingAt", BsonDateTime.Create(DateTime.UtcNow))
-                        .Set("ProcessingBy", BsonString.Create(Thread.CurrentThread.ManagedThreadId.ToString(CultureInfo.InvariantCulture))),
+                        .Set("Status", new BsonString("Processing"))
+                        .Set("ProcessingAt", new BsonDateTime(DateTime.UtcNow))
+                        .Set("ProcessingBy", new BsonString(Thread.CurrentThread.ManagedThreadId.ToString(CultureInfo.InvariantCulture))),
                         false,
                         true
                         );
@@ -196,8 +196,8 @@ namespace RationalEvs.Repositories
                 (
                     new { id },
                     x => ((UpdateBuilder)x.GetUpdateBuilder())
-                             .Set("Status", BsonString.Create("Ready"))
-                             .Set("ProcessingBy", BsonString.Create(""))
+                             .Set("Status", new BsonString("Ready"))
+                             .Set("ProcessingBy", new BsonString(""))
                 );
         }
 
